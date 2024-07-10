@@ -32,7 +32,7 @@ export default function Home() {
         });
 
         const data = await response.json();
-        
+
         if (response.ok) {
             sessionStorage.setItem("id", data.message);
             router.push("/");
@@ -46,57 +46,59 @@ export default function Home() {
     return (
         <div className="flex items-center justify-center my-52">
             <Card className="w-[350px]">
-                <CardHeader>
-                    <CardTitle>Register</CardTitle>
-                    <CardDescription>Deploy your new project in one-click.</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <form onSubmit={handleRegister}>
+                <form onSubmit={handleRegister}>
+                    <CardHeader>
+                        <CardTitle>Register</CardTitle>
+                        <CardDescription>Deploy your new project in one-click.</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+
                         <div className="grid w-full items-center gap-4">
                             <div className="flex flex-col space-y-1.5">
                                 <Label htmlFor="name">Name</Label>
-                                <Input 
-                                    id="name" 
-                                    type="text" 
-                                    placeholder="Name of your project" 
+                                <Input
+                                    id="name"
+                                    type="text"
+                                    placeholder="Name of your project"
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
                                 />
                             </div>
                             <div className="flex flex-col space-y-1.5">
                                 <Label htmlFor="email">Email</Label>
-                                <Input 
-                                    id="email" 
-                                    type="email" 
-                                    placeholder="Email of your project" 
+                                <Input
+                                    id="email"
+                                    type="email"
+                                    placeholder="Email of your project"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
                             </div>
                             <div className="flex flex-col space-y-1.5">
                                 <Label htmlFor="password">Password</Label>
-                                <Input 
-                                    id="password" 
-                                    type="password" 
-                                    placeholder="Password of your project" 
+                                <Input
+                                    id="password"
+                                    type="password"
+                                    placeholder="Password of your project"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                 />
                             </div>
                         </div>
-                        <CardFooter className="flex justify-between mt-5">
-                            <Link href="/login" passHref>
-                                <Button variant="outline">Login</Button>
-                            </Link>
-                            <Button type="submit" disabled={isLoading}>
-                                {isLoading ? (
-                                    <svg className="animate-spin h-5 w-5 mr-3 border-t-2 border-b-2 border-white" viewBox="0 0 24 24"></svg>
-                                ) : "Register"}
-                            </Button>
-                        </CardFooter>
-                    </form>
-                </CardContent>
+                    </CardContent>
+
+                    <CardFooter className="flex justify-between mt-5">
+                        <Link href="/login" passHref>
+                            <Button variant="outline">Login</Button>
+                        </Link>
+                        <Button type="submit" disabled={isLoading}>
+                            {isLoading ? (
+                                <svg className="animate-spin h-5 w-5 mr-3 border-t-2 border-b-2 border-white" viewBox="0 0 24 24"></svg>
+                            ) : "Register"}
+                        </Button>
+                    </CardFooter>
+                </form>
             </Card>
-        </div>
+        </div >
     );
 }
