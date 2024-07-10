@@ -18,7 +18,7 @@ const useProfileData = (): ProfileData | null => {
         const sessionId = sessionStorage.getItem('id');
         if (sessionId) {
           try {
-            const response = await fetch(`http://localhost:3001/cek-profile?uid=${sessionId}`);
+            const response = await fetch(`https://upn-sehat.vercel.app/cek-profile?uid=${sessionId}`);
             if (response.ok) {
               const data = await response.json();
               setProfile(data);

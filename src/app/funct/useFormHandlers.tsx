@@ -55,7 +55,7 @@ export const useFormHandlers = () => {
     e.preventDefault();
     
     try {
-      const response = await fetch("http://localhost:3001/create-job", {
+      const response = await fetch("https://upn-sehat.vercel.app/create-job", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -79,7 +79,7 @@ export const useFormHandlers = () => {
   };
   
   const handleDelete = (namaObat: string, email: string) => {
-    const url = `http://localhost:3001/delete-job?namaObat=${encodeURIComponent(namaObat)}&email=${encodeURIComponent(email)}`;
+    const url = `https://upn-sehat.vercel.app/delete-job?namaObat=${encodeURIComponent(namaObat)}&email=${encodeURIComponent(email)}`;
     axios.get(url)
       .then(response => {
         console.log('Delete successful:', response.data);

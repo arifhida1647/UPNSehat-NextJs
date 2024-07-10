@@ -16,7 +16,7 @@ export default function Home() {
         e.preventDefault();
         setIsLoading(true); // Set loading to true when request starts
 
-        const response = await fetch("http://localhost:3001/login", {
+        const response = await fetch("https://upn-sehat.vercel.app/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
